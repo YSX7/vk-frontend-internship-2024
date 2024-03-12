@@ -2,6 +2,7 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 
 import { App } from './app'
+import { AdaptivityProvider, ConfigProvider } from '@vkontakte/vkui'
 
 const reactRoot = createRoot(
   document.getElementById('root')!,
@@ -9,6 +10,10 @@ const reactRoot = createRoot(
 
 reactRoot.render(
   <React.StrictMode>
-    <App />
+    <ConfigProvider>
+      <AdaptivityProvider>
+        <App />
+      </AdaptivityProvider>
+    </ConfigProvider>
   </React.StrictMode>
 )
