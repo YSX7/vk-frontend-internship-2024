@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@vkontakte/icons':
+    specifier: ^2.102.0
+    version: 2.102.0(react@18.2.0)
   '@vkontakte/vkui':
     specifier: ^6.0.1
     version: 6.0.1(react-dom@18.2.0)(react@18.2.0)
@@ -725,8 +728,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@vkontakte/icons@2.101.0(react@18.2.0):
-    resolution: {integrity: sha512-CqG7/m3jAywkDM5CW6C2c172G1fG5mMKDk1D47//t7QlrnRqzDomvYQY24y4hm/8jyyUOYL7Xnhazq1fD0aA9w==}
+  /@vkontakte/icons@2.102.0(react@18.2.0):
+    resolution: {integrity: sha512-u1FXmTVmWMt5+wwEP4N2aoM4z2+5qTorXSWvnJKx/diurPPhOqbVfPAByQ+6MEykrnWaD0g1nRcvsqY4q8eXLA==}
     peerDependencies:
       react: ^16.9.34 || ^17 || ^18
     dependencies:
@@ -760,7 +763,7 @@ packages:
       react-dom: ^18.2.0
     dependencies:
       '@swc/helpers': 0.5.6
-      '@vkontakte/icons': 2.101.0(react@18.2.0)
+      '@vkontakte/icons': 2.102.0(react@18.2.0)
       '@vkontakte/vkjs': 1.1.1
       '@vkontakte/vkui-floating-ui': 0.1.5(react-dom@18.2.0)(react@18.2.0)
       dayjs: 1.11.10
