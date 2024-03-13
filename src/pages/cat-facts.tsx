@@ -43,10 +43,10 @@ export function CatFacts() {
                     {isLoading ? <Spinner /> : "Зафактить"}
                 </Button>
             </FormItem>
-            <FormItem htmlFor="catfactTextArea"
+            <FormItem htmlFor="catfact-textarea"
                 top="👆 Нажмите кнопку, чтобы получить факт о кошках">
                 <Textarea
-                    id="catfactTextArea"
+                    id="catfact-textarea"
                     getRef={textInput}
                     grow={true}
                 />
