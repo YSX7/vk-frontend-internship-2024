@@ -27,8 +27,8 @@ export function CatFacts() {
             input.focus()
             input.selectionStart = input.selectionEnd = data.fact.indexOf(' ')
         }
-        catch (e) {
-            console.error(e)
+        catch (error) {
+            console.error(error)
             setError("Ошибка получения факта, попробуйте ещё раз.")
         }
         setIsLoading(false)
