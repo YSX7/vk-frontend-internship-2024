@@ -2,7 +2,8 @@ import { AppRoot, Div, Group, Panel, PanelHeader, PanelHeaderContent, Tabs, Tabs
 import React, { FunctionComponent } from 'react'
 import '@vkontakte/vkui/dist/vkui.css';
 import { CatFacts } from 'src/pages/cat-facts';
-import { Agify } from 'src/pages/agify';
+import { Agify } from 'src/pages/agify/agify';
+import styles from './app.module.css'
 
 const TABS = [
   {
@@ -21,10 +22,10 @@ export const App: FunctionComponent = () => {
   return (
     <AppRoot>
       <View activePanel="panel">
-        <Panel id="panel">
+        <Panel id="panel" className={styles.content}>
           <PanelHeader
             before={
-              <PanelHeaderContent title='Самое Полезное Приложение в Мире'>
+              <PanelHeaderContent className={styles.header} title='Самое Полезное Приложение в Мире'>
                 СМПМ
               </PanelHeaderContent>
             }
