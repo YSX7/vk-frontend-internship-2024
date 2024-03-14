@@ -45,8 +45,8 @@ export const App: FunctionComponent = () => {
               ))}
             </Tabs>
           </PanelHeader>
-          {selected === 'cat-facts' && <CatFacts/>}
-          {selected === 'agify' && <Agify/>}
+          <CatFacts className={styles.content} style={{display: selected === 'cat-facts' ? 'unset' : 'none'}}/>
+          <Agify className={styles.content} style={{display: selected === 'agify' ? 'unset' : 'none'}}/>
         </Panel>
       </View>
     </AppRoot>

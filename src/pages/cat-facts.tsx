@@ -1,12 +1,12 @@
 import { Button, FormItem, Group, Spinner, Textarea } from "@vkontakte/vkui";
-import { FormEvent, useRef, useState } from "react";
+import { ComponentProps, FormEvent, useRef, useState } from "react";
 
 type CatFact = {
     fact: string,
     length: number
 }
 
-export function CatFacts() {
+export function CatFacts(props : ComponentProps<typeof Group>) {
 
     const textInput = useRef<HTMLTextAreaElement>(null);
     const [error, setError] = useState<string>()
@@ -34,7 +34,7 @@ export function CatFacts() {
         setIsLoading(false)
     }
 
-    return (<Group id="tab-content-cat-facts" aria-labelledby="tab-cat-facts" role="tabpanel">
+    return (<Group id="tab-content-cat-facts" aria-labelledby="tab-cat-facts" role="tabpanel" {...props}>
         <form onSubmit={getFact}>
             <FormItem
                 status={error ? 'error' : 'default'}
