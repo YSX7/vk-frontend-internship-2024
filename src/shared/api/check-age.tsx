@@ -22,6 +22,7 @@ export function useCheckAge(name: string) {
         if (controller) controller.abort()
         controller = new AbortController()
         setAge(undefined);
+        setError(undefined);
         setIsLoading(true);
 
         try {
