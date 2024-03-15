@@ -1,8 +1,9 @@
 import { Button, Div, FormItem, Group, Input, Spinner } from "@vkontakte/vkui";
-import { ComponentProps, useEffect, useState } from "react";
+import { ChangeEvent, ComponentProps, useEffect, useState } from "react";
 import { useAgeStatus } from "src/shared/model/age-status";
 import styles from "./style.module.css";
 import { useCheckAge } from "src/shared/api/check-age";
+import { ValidationError, string } from "yup";
 
 
 export function Agify(props: ComponentProps<typeof Group>) {
@@ -14,6 +15,18 @@ export function Agify(props: ComponentProps<typeof Group>) {
 
   const [age, fetchAge] = useCheckAge(name)
   const ageStatus = useAgeStatus(age.data)
+
+  function inputChange(e: ChangeEvent<HTMLInputElement>) {
+    const schema = string().matches(/^[\p{L} ]+$/gu)
+    const value = e.target.value
+    try {
+      if (schema.isValidSync(value)) {
+        setName(value)
+      }
+    } catch {
+
+    }
+  }
 
   useEffect(() => {
     if (!name) {
@@ -41,7 +54,7 @@ export function Agify(props: ComponentProps<typeof Group>) {
         <Input
           id="agify-input"
           value={name}
-          onChange={e => setName(e.target.value)}
+          onChange={inputChange}
           after={
             <Spinner style={{ visibility: isDebouncing ? 'visible' : 'hidden' }} />
           }
