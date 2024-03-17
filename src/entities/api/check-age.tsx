@@ -11,9 +11,9 @@ type AgifyResponse = {
 }
 
 export function useCheckAge(name: string) {
-    const ageCache: AgeCache = {}
     let controller: AbortController;
 
+    const [ageCache, setAgeCache] = useState<AgeCache>({})
     const [age, setAge] = useState<number>()
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState<string>()
@@ -35,7 +35,7 @@ export function useCheckAge(name: string) {
                 return
             }
             const { age } = await fetch(`https://api.agify.io?name=${name}`, { signal: controller.signal }).then<AgifyResponse>(res => res.json())
-            ageCache[name] = age
+            setAgeCache(ageCache => ({ ...ageCache, [name]: age }))
             setAge(age)
         }
         catch (err) {
