@@ -14,4 +14,5 @@ export default defineConfig({
       'src': path.resolve(packageRoot, './src'),
     },
   },
+  base: '/vk-frontend-internship-2024/',
 })
