@@ -1,9 +1,9 @@
 import { Button, Div, FormItem, Group, Input, Spinner } from "@vkontakte/vkui";
 import { ChangeEvent, ComponentProps, useEffect, useState } from "react";
-import { useAgeStatus } from "src/shared/model/age-status";
+import { useAgeStatus } from "src/entities/lib/age-status";
 import styles from "./style.module.css";
-import { useCheckAge } from "src/shared/api/check-age";
-import { ValidationError, string } from "yup";
+import { useCheckAge } from "src/entities/api/check-age";
+import { string } from "yup";
 
 
 export function Agify(props: ComponentProps<typeof Group>) {
@@ -17,8 +17,13 @@ export function Agify(props: ComponentProps<typeof Group>) {
   const ageStatus = useAgeStatus(age.data)
 
   function inputChange(e: ChangeEvent<HTMLInputElement>) {
-    const schema = string().matches(/^[\p{L} ]+$/gu)
     const value = e.target.value
+    if(!value)
+    {
+      setName(value)
+      return
+    }
+    const schema = string().matches(/^[\p{L} ]+$/gu)
     try {
       if (schema.isValidSync(value)) {
         setName(value)
